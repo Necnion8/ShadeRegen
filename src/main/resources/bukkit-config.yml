@@ -1,0 +1,32 @@
+# 生成サーバーの設定
+generate-server:
+  java: auto  # e.g. ./bin/java
+  server-jar: auto  # e.g. paper.jar
+  min-memory: 1024  # MB
+
+# 事前生成を実行するタイミング
+pre-generate-timings:
+  # サーバー起動時
+  startup: true
+  # プレイヤーがいなくなった時
+  player-empty: true
+  # ワールド再生成(入れ替え)を実行した時
+  world-regen: true
+
+# 再生成ワールドの設定
+regen:
+  # 対象ワールド (空のワールド名で無効化)
+  world-name:
+    normal: resource
+    nether: resource_nether
+    the_end: resource_the_end
+
+  # 自動実行 (未実装)
+  autorun:
+    enabled: false
+    timezone: local  # e.g. Asia/Tokyo
+    timing:
+      frequency: monthly  # monthly, weekly
+      monthly: 1  # 毎月1日
+      weekly: monday  # 毎週月曜日
+      time: "00:00"  # 00:00 に実行

@@ -1,0 +1,11 @@
+name: ShadeRegen
+version: '${version}'
+main: com.gmail.necnionch.myplugin.shaderegen.bukkit.ShadeRegenPlugin
+api-version: '1.13'
+authors: [ Necnion8 ]
+softdepend:
+  - KyoriAdventureLib
+website: https://github.com/Necnion8/ShadeRegen
+
+commands:
+  shaderegen: {}
