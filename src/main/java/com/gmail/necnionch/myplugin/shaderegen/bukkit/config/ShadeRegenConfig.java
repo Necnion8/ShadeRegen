@@ -3,6 +3,7 @@ package com.gmail.necnionch.myplugin.shaderegen.bukkit.config;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.MemoryConfiguration;
 import org.bukkit.plugin.Plugin;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.Optional;
 import java.util.function.Supplier;
@@ -27,22 +28,22 @@ public class ShadeRegenConfig extends BukkitConfiguration {
         return () -> Optional.ofNullable(config.getConfigurationSection(key)).orElseGet(MemoryConfiguration::new);
     }
 
-    private String getRegenName(String worldType) {
+    private @Nullable String getRegenName(String worldType) {
         if (!config.contains("regen.world-name." + worldType))
             return null;
         String tmp = config.getString("regen.world-name." + worldType);
         return "".equalsIgnoreCase(tmp) ? null : tmp;
     }
 
-    public String getRegenName() {
+    public @Nullable String getRegenName() {
         return getRegenName("normal");
     }
 
-    public String getRegenNameNether() {
+    public @Nullable String getRegenNameNether() {
         return getRegenName("nether");
     }
 
-    public String getRegenNameTheEnd() {
+    public @Nullable String getRegenNameTheEnd() {
         return getRegenName("the_end");
     }
 

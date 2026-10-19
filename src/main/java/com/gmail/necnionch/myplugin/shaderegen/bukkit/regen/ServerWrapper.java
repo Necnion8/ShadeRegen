@@ -14,10 +14,7 @@ import java.util.stream.Stream;
 public class ServerWrapper {
 
     private static final Pattern STARTUP_PATTERN = Pattern.compile("Done .+! For help, type");
-    private static final Pattern[] PREPARING_PATTERNS = new Pattern[] {
-            Pattern.compile("Preparing level \""),
-            Pattern.compile("Preparing start region for level"),  // old ver
-    };
+    private static final Pattern PREPARING_PATTERN = Pattern.compile("Preparing level \"");
     private static final int KEEP_RECENT_LOG_LINES = 20;
     private final Options options;
     private final Handler handler;
@@ -108,17 +105,12 @@ public class ServerWrapper {
                         }
 
                         // check preparing
-                        if (!preparing) {
-                            for (Pattern pattern : PREPARING_PATTERNS) {
-                                if (pattern.matcher(line).find()) {
-                                    preparing = true;
-                                    try {
-                                        handler.onLevelPreparing();
-                                    } catch (Throwable e) {
-                                        handler.onError(e);
-                                    }
-                                    break;
-                                }
+                        if (!preparing && PREPARING_PATTERN.matcher(line).find()) {
+                            preparing = true;
+                            try {
+                                handler.onLevelPreparing();
+                            } catch (Throwable e) {
+                                handler.onError(e);
                             }
                         }
 

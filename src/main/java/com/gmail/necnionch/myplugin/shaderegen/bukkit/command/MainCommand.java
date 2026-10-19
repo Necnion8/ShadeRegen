@@ -17,7 +17,10 @@ public class MainCommand extends Command {
     }
 
     private void regen(Context context) {
-
+        context.send(Component.text("Start Regeneration!"));
+        regen.regenerate().thenAccept(result -> {
+            context.send(Component.text("Result: " + result));
+        });
     }
 
     private void build(Context context) {

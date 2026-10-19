@@ -8,6 +8,11 @@ import java.util.concurrent.CompletableFuture;
 
 public interface ShadeRegen {
 
+    static ShadeRegen get() {
+        return ShadeRegenPlugin.getPlugin(ShadeRegenPlugin.class).getImpl();
+    }
+
+
     ShadeRegenConfig getConfig();
 
     ShadeGenerator getGenerator();
@@ -29,9 +34,9 @@ public interface ShadeRegen {
      */
     CompletableFuture<Boolean> startPregenAsync(@Nullable ShadeGenerator.ProgressListener listener);
 
-
-    static ShadeRegen get() {
-        return ShadeRegenPlugin.getPlugin(ShadeRegenPlugin.class).getImpl();
-    }
+    /**
+     * 連携しているマルチワールドプラグインを介して、設定ワールドを再生成します
+     */
+    CompletableFuture<Boolean> regenerate();
 
 }

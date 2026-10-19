@@ -10,11 +10,16 @@ repositories {
 
     // Spigot
     maven { url = "https://repo.papermc.io/repository/maven-public/" }
+
+    // Multiverse
+    maven { url = "https://repo.onarandombox.com/content/groups/public/" }
 }
 
 dependencies {
     compileOnly "org.spigotmc:spigot-api:1.13.2-R0.1-SNAPSHOT"
     compileOnly "net.kyori:adventure-api:4.19.0"
+    compileOnly "com.onarandombox.multiversecore:Multiverse-Core:4.2.0"
+    compileOnly "org.mvplugins.multiverse.core:multiverse-core:5.0.0"
 }
 
 def targetJavaVersion = 8

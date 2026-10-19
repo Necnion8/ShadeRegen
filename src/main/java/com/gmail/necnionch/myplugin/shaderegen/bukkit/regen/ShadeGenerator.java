@@ -175,6 +175,10 @@ public class ShadeGenerator {
         public int getValue() {
             return value;
         }
+
+        public boolean isExited() {
+            return value < 0;
+        }
     }
 
     public interface ProgressListener {

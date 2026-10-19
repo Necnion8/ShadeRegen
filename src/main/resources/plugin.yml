@@ -3,6 +3,8 @@ version: '${version}'
 main: com.gmail.necnionch.myplugin.shaderegen.bukkit.ShadeRegenPlugin
 api-version: '1.13'
 authors: [ Necnion8 ]
+depend:
+  - Multiverse-Core
 softdepend:
   - KyoriAdventureLib
 website: https://github.com/Necnion8/ShadeRegen

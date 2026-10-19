@@ -17,7 +17,7 @@ public class PlayerEventListener implements Listener {
 
     @EventHandler(priority = EventPriority.MONITOR)
     public void onPlayerQuit(PlayerQuitEvent event) {
-        if (regen.getConfig().pregenTimings.playerEmpty() && Bukkit.getOnlinePlayers().isEmpty()) {
+        if (regen.getConfig().pregenTimings.playerEmpty() && Bukkit.getOnlinePlayers().size() <= 1) {
             if (regen.needsPregen())
                 regen.startPregenAsync(null);
         }
