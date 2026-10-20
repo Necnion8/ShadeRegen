@@ -25,7 +25,7 @@ public class MainCommand extends Command {
 
     private void build(Context context) {
         regen.startPregenAsync(status -> {
-            context.send(Component.text("Regenerating: " + status.name()));
+            context.send(Component.text("Shade Regenerating: " + status.name()));
         });
     }
 
